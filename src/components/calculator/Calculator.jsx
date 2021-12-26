@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.production.min"
+import { useEffect, useState } from "react";
+import CalculatorKey from "../controls/CalculatorControls";
+import css from './calculator.css'
 
 
 function Calculator() {
@@ -83,17 +84,41 @@ function Calculator() {
   return (
     <section>
       <div className={css.result}>
-        <p>{result}</p>
+        <p>{next}</p>
       </div>
       <div className={css.keyPad}>
         <div className={css.keyFunction}>
           <CalculatorKey keyValue={'%'} onClick={handleOp} />
+          <CalculatorKey keyValue={'\xB1'} onClick={handleOp} />
+          <CalculatorKey keyValue={'c'} onClick={handleOp} />
         </div>
-        <div className={css.keyOperators} onClick={handleOp}>
-          <CalculatorKey keyValue={'+'} />
+        <div className={css.keyOperators}>
+          <CalculatorKey keyValue={'+'} onClick={handleOp}/>
+          <CalculatorKey keyValue={'-'} onClick={handleOp}/>
+          <CalculatorKey keyValue={'*'} onClick={handleOp}/>
+          <CalculatorKey keyValue={'/'} onClick={handleOp}/>
+          <CalculatorKey keyValue={'='} onClick={handleOp}/>
         </div>
         <div>
           <CalculatorKey keyValue={9} onClick={handleOp} />
+          <CalculatorKey keyValue={8} onClick={handleOp} />
+          <CalculatorKey keyValue={7} onClick={handleOp} />
+          <CalculatorKey keyValue={6} onClick={handleOp} />
+          <CalculatorKey keyValue={5} onClick={handleOp} />
+          <CalculatorKey keyValue={4} onClick={handleOp} />
+          <CalculatorKey keyValue={3} onClick={handleOp} />
+          <CalculatorKey keyValue={2} onClick={handleOp} />
+          <CalculatorKey keyValue={1} onClick={handleOp} />
+          <CalculatorKey
+            className={css.decimal} 
+            keyValue={'.'} 
+            onClick={handleOp} 
+          />
+          <CalculatorKey
+            className={css.cero} 
+            keyValue={0} 
+            onClick={handleOp} 
+          />
         </div>
       </div>
     </section>
