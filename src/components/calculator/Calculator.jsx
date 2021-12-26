@@ -69,7 +69,7 @@ function Calculator() {
       if(prev && op && next) {
         executeOp();
       }
-    } else if (value === 'c') {
+    } else if (value === 'clear') {
       reset();
     } else if (value === '\xB1') {
       changeNeg();
@@ -90,7 +90,7 @@ function Calculator() {
         <div className={css.keyFunction}>
           <CalculatorKey keyValue={'%'} onClick={handleOp} />
           <CalculatorKey keyValue={'\xB1'} onClick={handleOp} />
-          <CalculatorKey keyValue={'c'} onClick={handleOp} />
+          <CalculatorKey keyValue={'clear'} onClick={handleOp} />
         </div>
         <div className={css.keyOperators}>
           <CalculatorKey keyValue={'+'} onClick={handleOp}/>
