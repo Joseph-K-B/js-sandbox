@@ -1,7 +1,8 @@
 import React, { Component, useState } from 'react';
 import clap from '../../../public/assets/sounds/clap-808.mp3';
-import ReactDOM from 'react-dom';
-import css from './Drums.css'
+import crash from '../../../public/assets/sounds/crash-noise.mp3';
+import snare from '../../../public/assets/sounds/snare-block.mp3';
+
 
 class Drums extends Component {
   // function Drums() {
@@ -11,13 +12,13 @@ class Drums extends Component {
     super(props);
     this.sounds = {
       clap: new Audio(clap),
-      crash: new Audio(),
+      crash: new Audio(crash),
       hiHat: new Audio(),
       bassDrum: new Audio(),
       kickDrum: new Audio(),
       tribal: new Audio(),
       rideCymbal: new Audio(),
-      snare: new Audio(),
+      snare: new Audio(snare),
       tom: new Audio(),
     };
     this.state = {
@@ -162,33 +163,31 @@ class Drums extends Component {
       <div
           id="drum-display"
           tabIndex={-1}
-          onKeyDown={event => this.handleKeys(event.keyCode)} />
-      <div className="drum-pad" id="clap" onClick={e => this.handleClick(e)}>
-      <p>C</p>
-      <audio className="clip" id="C" src={clap} type="audio/mp3" />
-      <div className="drum-names">
-        <p>Clap</p>
-      </div>
+          onKeyDown={event => this.handleKeys(event.keyCode)}>
+        <div className="drum-pad" id="clap" onClick={e => this.handleClick(e)}>
+          <p>C</p>
+          <audio className="clip" id="C" src={clap} type="audio/mp3" />
+          <div className="drum-names">
+            <p>Clap</p>
+          </div>
+          </div>
+        <div className="drum-pad" id="crash" onClick={e => this.handleClick(e)}>
+          <p>X</p>
+          <audio className="clip" id="X" src={crash} type="audio/mp3" />
+          <div className="drum-names">
+            <p>Crash</p>
+            </div>
+        </div>
+        <div className="drum-pad" id="snare" onClick={e => this.handleClick(e)}>
+          <p>A</p>
+          <audio className="clip" id="A" src={snare} type="audio/mp3" />
+          <div className="drum-names">
+            <p>Snare</p>
+            </div>
+        </div>
       </div>
       </>
     )
-    // const padItem = this.props.padItem
-    // return (
-    //   <div
-    //     className={css.drumPad}
-    //     id={padItem.id}
-    //     onClick={this.onDrumClick}
-    //   >
-    //     <audio 
-    //       className={css.audio}
-    //       id={padItem.keyTrig}
-    //       src={padItem.url}
-    //       ref={this.audioHandler}
-    //     />
-    //     {padItem.keyTrig}
-    //   </div>
-    // )
-
   }
 
 }
