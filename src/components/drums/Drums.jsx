@@ -1,11 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
+import clap from '../../../public/assets/sounds/clap-808.mp3';
 import ReactDOM from 'react-dom';
 import css from './Drums.css'
 
 class Drums extends Component {
+  // function Drums() {
+  // const [sounds, setSounds] = useState(null)
+  // const [drum, setDrum] = useState(null)
   constructor(props) {
     super(props);
     this.sounds = {
+      clap: new Audio(clap),
+      crash: new Audio(),
+      hiHat: new Audio(),
+      bassDrum: new Audio(),
+      kickDrum: new Audio(),
+      tribal: new Audio(),
+      rideCymbal: new Audio(),
+      snare: new Audio(),
+      tom: new Audio(),
     };
     this.state = {
       clap: 'Clap',
@@ -28,6 +41,10 @@ class Drums extends Component {
     console.log(log);
     switch(e.currentTarget.childNodes[1].id) {
       case 'W':
+        // W/ Hook
+        // setSounds(kickDrum);
+        // sounds.currentTime = 0;
+        // sounds.play();
         this.sounds.kickDrum.currentTime = 0;
         this.setState({ default: this.state.kickDrum });
         this.sounds.kickDrum.play();
@@ -131,67 +148,29 @@ class Drums extends Component {
         console.log('ya fucked up');      
     }
   }
-// function Drums() {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.audioHandler = React.createRef();
-  //   this.onDrumClick = this.onDrumClick.bind(this);
-  //   this.onKeyDown = this.onKeyDown.bind(this);
-  //   this.onKeyUp = this.onKeyUp.bind(this);
-  // }
-
-  // onDrumClick() {
-  //   const txt = this.props.padItem.id.replace(/-/g, ' ');
-  //   const audioElm = this.audioHandler.current;
-
-  //   this.props.updateTxt(txt);
-  //   audioElm.currentTime = 0;
-  //   audioElm.play();
-  // }
-
-  // onKeyDown(e) {
-  //   const root = ReactDOM.findDOMNode(this);
-
-  //   if (e.keyCode === this.props.padItem.keyCode) {
-  //     root.classList.add('active');
-  //     this.onDrumClick();
-  //   }
-  // }
-
-  // onKeyUp(e) {
-  //   const root = ReactDOM.findDOMNode(this);
-
-  //   if(e.keyCode === this.props.padItem.keyCode) {
-  //     setTimeout(() => {
-  //       root.classList.remove('active');
-  //     }, 33);
-  //   }
-  // }
-
-  // componentDidUpdate() {
-  //   this.audioHandler.current.volume = this.props.volumeValue / 100;
-  // }
-
-  // componentDidMount() {
-  //   document.addEventListener('keydown', this.onKeyDown);
-  //   document.addEventListener('keyup', this.onKeyUp);
-  // }
-
-  // componentWillUnmount() {
-  //   document.addEventListener('keydown', this.onKeyDown);
-  //   document.addEventListener('keyup', this.onKeyUp);
-  // }
 
   render() {
-    return (
+    return (      
+      <>
       <div>
         <p>Q</p>
         <audio>
           <source src={this.sound} type='audio/mp3' />
         </audio>
-        <p>{props.name}</p>
+        {/* <p>{props.name}</p> */}
       </div>
+      <div
+          id="drum-display"
+          tabIndex={-1}
+          onKeyDown={event => this.handleKeys(event.keyCode)} />
+      <div className="drum-pad" id="clap" onClick={e => this.handleClick(e)}>
+      <p>C</p>
+      <audio className="clip" id="C" src={clap} type="audio/mp3" />
+      <div className="drum-names">
+        <p>Clap</p>
+      </div>
+      </div>
+      </>
     )
     // const padItem = this.props.padItem
     // return (

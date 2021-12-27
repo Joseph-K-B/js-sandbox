@@ -1,6 +1,6 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 
 
-function NumberProvider() {
-  const {number, setNumber} = useContext
-}
+// function NumberProvider() {
+//   const {number, setNumber} = useContext
+// }
