@@ -10,7 +10,7 @@ import rideCymbal from '../../../public/assets/sounds/ride-acoustic02.mp3';
 import tom from '../../../public/assets/sounds/tom-analog.mp3';
 
 function Drums() {
-  const [sound, setSound] = useState();
+  const [sound, setSound] = useState(null);
   const sounds = (new Audio(sound));
 
   const handleClick = (e) => {    
@@ -18,53 +18,53 @@ function Drums() {
     // console.log(log);
     switch(e.currentTarget.childNodes[1].id) {
       case 'C':
-        sounds.currentTime = 0;
         setSound(clap);
-        sounds.play(clap);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 'X':
-        sounds.currentTime = 0;
         setSound(crash);
-        sounds.play(crash);
-        break;
-      case 'S':
         sounds.currentTime = 0;
-        setSound(hiHat);
-        sounds.play(hiHat);
-        break;
-      case 'W':
-        sounds.currentTime = 0;
-        setSound(kick);
-        sounds.play(kick);
-        break;
-      case 'Q':
-        sounds.currentTime = 0;
-        setSound(bass);
-        sounds.play(bass);
-        break;
-      case 'E':
-        sounds.currentTime = 0;
-        setSound(tom);
-        sounds.play(tom);
-        break;
-      case 'A':
-        sounds.currentTime = 0;
-        setSound(snare);
         sounds.play();
         break;
       case 'S':
-        sounds.currentTime = 0;
         setSound(hiHat);
+        sounds.currentTime = 0;
+        sounds.play();
+        break;
+      case 'W':
+        setSound(kick);
+        sounds.currentTime = 0;
+        sounds.play();
+        break;
+      case 'Q':
+        setSound(bass);
+        sounds.currentTime = 0;
+        sounds.play();
+        break;
+      case 'E':
+        setSound(tom);
+        sounds.currentTime = 0;
+        sounds.play();
+        break;
+      case 'A':
+        setSound(snare);
+        sounds.currentTime = 0;
+        sounds.play();
+        break;
+      case 'S':
+        setSound(hiHat);
+        sounds.currentTime = 0;
         sounds.play();
         break;
       case 'D':
-        sounds.currentTime = 0;
         setSound(rideCymbal);
+        sounds.currentTime = 0;
         sounds.play();
         break;
       case 'Z':
-        sounds.currentTime = 0;
         setSound(tribal);
+        sounds.currentTime = 0;
         sounds.play();
         break;
       default:
@@ -78,49 +78,49 @@ function Drums() {
   const handleKeys = (keyCode) => {
     switch(keyCode) {
       case 67:
-        sounds.currentTime = 0;
         setSound(clap);
-        sounds.play(clap);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 88:
-        sounds.currentTime = 0;
         setSound(crash);
-        sounds.play(crash);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 87:
-        sounds.currentTime = 0;
         setSound(kick);
-        sounds.play(kick);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 81:
-        sounds.currentTime = 0;
         setSound(bass);
-        sounds.play(bass);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 69:
-        sounds.currentTime = 0;
         setSound(tom);
-        sounds.play(tom);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 65:
-        sounds.currentTime = 0;
         setSound(snare);
-        sounds.play(snare);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 83:
-        sounds.currentTime = 0;
         setSound(hiHat);
-        sounds.play(hiHat);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 68:
-        sounds.currentTime = 0;
         setSound(rideCymbal);
-        sounds.play(rideCymbal);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       case 90:
-        sounds.currentTime = 0;
         setSound(tribal);
-        sounds.play(tribal);
+        sounds.currentTime = 0;
+        sounds.play();
         break;
       default:
         console.log('ya fucked up');
