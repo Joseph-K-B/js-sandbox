@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const SRC = path.resolve(__dirname, 'node_modules');
 
 const env = Object.entries({
   ...require('dotenv').config(),
@@ -86,6 +87,18 @@ module.exports = {
           loader: 'url-loader',
           options: { limit: 1000 },
         },
+      },
+      {
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+			    use: 'file-loader'
+        // test: /\mp3$/,
+        // use: 'file-loader',
+        // use: {
+        //   loader: 'url-loader'
+        // },
+        // include: SRC,
+        // loader: 'babel-loader',
+        // loader: 'file-loader'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

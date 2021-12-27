@@ -1,3 +1,15 @@
+import Calculator from "./components/calculator/Calculator";
+import Clock from "./components/clock/Clock";
+import Drums from "./components/drums/Drums";
+import Stopwatch from "./components/stopwatch/stopwatch";
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Stopwatch />
+      <Clock />
+      <Calculator />
+      <Drums />
+    </>
+  )
 }
