@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import clap from '../../../public/assets/sounds/clap-808.mp3';
 import crash from '../../../public/assets/sounds/crash-noise.mp3';
 import snare from '../../../public/assets/sounds/snare-block.mp3';
+import hiHat from '../../../public/assets/sounds/hihat.mp3';
 
 
 class Drums extends Component {
@@ -13,7 +14,7 @@ class Drums extends Component {
     this.sounds = {
       clap: new Audio(clap),
       crash: new Audio(crash),
-      hiHat: new Audio(),
+      hiHat: new Audio(hiHat),
       bassDrum: new Audio(),
       kickDrum: new Audio(),
       tribal: new Audio(),
@@ -176,6 +177,13 @@ class Drums extends Component {
           <audio className="clip" id="X" src={crash} type="audio/mp3" />
           <div className="drum-names">
             <p>Crash</p>
+            </div>
+        </div>
+        <div className="drum-pad" id="hiHat" onClick={e => this.handleClick(e)}>
+          <p>S</p>
+          <audio className="clip" id="S" src={hiHat} type="audio/mp3" />
+          <div className="drum-names">
+            <p>hiHat</p>
             </div>
         </div>
         <div className="drum-pad" id="snare" onClick={e => this.handleClick(e)}>
