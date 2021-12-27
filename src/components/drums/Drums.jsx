@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import clap from '../../../public/assets/sounds/clap-808.mp3';
 import crash from '../../../public/assets/sounds/crash-noise.mp3';
 import snare from '../../../public/assets/sounds/snare-block.mp3';
@@ -9,9 +9,8 @@ import tribal from '../../../public/assets/sounds/perc-tribal.mp3';
 import rideCymbal from '../../../public/assets/sounds/ride-acoustic02.mp3';
 import tom from '../../../public/assets/sounds/tom-analog.mp3';
 
-// class Drums extends Component {
 function Drums() {
-  const [sound, setSound] = useState(null);
+  const [sound, setSound] = useState();
   const sounds = (new Audio(sound));
 
   const handleClick = (e) => {    
@@ -91,7 +90,7 @@ function Drums() {
       case 87:
         sounds.currentTime = 0;
         setSound(kick);
-        sounds.play();
+        sounds.play(kick);
         break;
       case 81:
         sounds.currentTime = 0;
@@ -101,27 +100,27 @@ function Drums() {
       case 69:
         sounds.currentTime = 0;
         setSound(tom);
-        sounds.play();
+        sounds.play(tom);
         break;
       case 65:
         sounds.currentTime = 0;
         setSound(snare);
-        sounds.play();
+        sounds.play(snare);
         break;
       case 83:
         sounds.currentTime = 0;
         setSound(hiHat);
-        sounds.play();
+        sounds.play(hiHat);
         break;
       case 68:
         sounds.currentTime = 0;
         setSound(rideCymbal);
-        sounds.play();
+        sounds.play(rideCymbal);
         break;
       case 90:
         sounds.currentTime = 0;
         setSound(tribal);
-        sounds.play();
+        sounds.play(tribal);
         break;
       default:
         console.log('ya fucked up');
@@ -202,7 +201,5 @@ function Drums() {
       </>
     )
   }
-
-// }
 
 export default Drums;
