@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import clap from '../../../public/assets/sounds/clap-808.mp3';
 import crash from '../../../public/assets/sounds/crash-noise.mp3';
 import snare from '../../../public/assets/sounds/snare-block.mp3';
@@ -8,71 +8,98 @@ import kick from '../../../public/assets/sounds/kick-zapper.mp3';
 import tribal from '../../../public/assets/sounds/perc-tribal.mp3';
 import rideCymbal from '../../../public/assets/sounds/ride-acoustic02.mp3';
 import tom from '../../../public/assets/sounds/tom-analog.mp3';
+// import DrumClickReducer from '../../utils/DrumReducer';
+// import DrumKeysReducer from '../../utils/DrumKeyReducer';
+
+// const sounds = {
+//   clap,
+//   crash,
+//   snare,
+//   hiHat,
+//   bass,
+//   kick,
+//   tribal,
+//   rideCymbal,
+//   tom
+// }
 
 function Drums() {
-  const [sound, setSound] = useState(null);
+  // const [sound, dispatch] = useReducer(DrumClickReducer, sounds);
+  // const [keySound, dispatch] = useReducer(DrumKeysReducer, sounds);
+  const [sound, setSound] = useState('');
   const sounds = (new Audio(sound));
 
+
+  const newSound = () => {
+    dispatch({
+      type: 'clap',
+      sound
+    });
+  }
   const handleClick = (e) => {    
-    // const log = e;
-    // console.log(log);
+    const log = e;
+    console.log(log);
     switch(e.currentTarget.childNodes[1].id) {
       case 'C':
         setSound(clap);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(clap);
         break;
       case 'X':
         setSound(crash);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(crash);
         break;
       case 'S':
         setSound(hiHat);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(hiHat);
         break;
       case 'W':
         setSound(kick);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(kick);
         break;
       case 'Q':
         setSound(bass);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(bass);
         break;
       case 'E':
         setSound(tom);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(tom);
         break;
       case 'A':
         setSound(snare);
         sounds.currentTime = 0;
         sounds.play();
-        break;
-      case 'S':
-        setSound(hiHat);
-        sounds.currentTime = 0;
-        sounds.play();
+        // sounds.play(snare);
         break;
       case 'D':
         setSound(rideCymbal);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(rideCymbal);
         break;
       case 'Z':
         setSound(tribal);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(tribal);
         break;
       default:
         console.log('ya fucked up');
         break;
     }
 
-    // console.dir(e.currentTarget);
+    console.dir(e.currentTarget);
   }
 
   const handleKeys = (keyCode) => {
@@ -81,6 +108,7 @@ function Drums() {
         setSound(clap);
         sounds.currentTime = 0;
         sounds.play();
+        // sounds.play(clap);
         break;
       case 88:
         setSound(crash);
@@ -132,9 +160,10 @@ function Drums() {
       <>
       <div
           id="drum-display"
-          tabIndex={-1}
-          onKeyDown={e => handleKeys(e.keyCode)}>
-        <div className="drum-pad" id="clap" onClick={e => handleClick(e)}>
+          tabIndex={-2}
+          onKeyDown={(e) => handleKeys(e.keyCode)}
+          >
+        <div className="drum-pad" id="clap" onClick={(e) => e.handleClick()}>
           <p>C</p>
           <audio className="clip" id="C" src={clap} type="audio/mp3" />
           <div className="drum-names">

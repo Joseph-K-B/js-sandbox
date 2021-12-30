@@ -15,7 +15,7 @@ function Calculator() {
     "*" : (firstValue, secondValue) => firstValue * secondValue,
     "+" : (firstValue, secondValue) => firstValue + secondValue,
     "-" : (firstValue, secondValue) => firstValue - secondValue,
-    "=" : (firstValue, secondValue) => secondValue,
+    "=" : (secondValue) => secondValue,
   };
 
   const executeOp = () => {
